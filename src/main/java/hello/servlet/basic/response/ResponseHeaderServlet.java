@@ -41,6 +41,7 @@ public class ResponseHeaderServlet extends HttpServlet {
 
         //Content-Type: text/plain;charset=utf-8
         //Content-Length: 2
+        
         //response.setHeader("Content-Type", "text/plain;charset=utf-8"); 
         response.setContentType("text/plain"); 
         response.setCharacterEncoding("utf-8"); 
@@ -50,6 +51,7 @@ public class ResponseHeaderServlet extends HttpServlet {
     private void cookie(HttpServletResponse response) {
 
         //Set-Cookie: myCookie=good; Max-Age=600; 
+
         //response.setHeader("Set-Cookie", "myCookie=good; Max-Age=600"); //아래의 쿠키 객체를 사용하면 이것과 같은 동작
         Cookie cookie = new Cookie("myCookie", "good"); 
         cookie.setMaxAge(600); //600초 유효
@@ -61,6 +63,7 @@ public class ResponseHeaderServlet extends HttpServlet {
 
         //Status Code 302
         //Location: /basic/hello-form.html
+
         //response.setStatus(HttpServletResponse.SC_FOUND); //302
         //response.setHeader("Location", "/basic/hello-form.html");
         response.sendRedirect("/basic/hello-form.html");
