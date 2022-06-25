@@ -1,6 +1,8 @@
 package hello.servlet.web.frontcontroller;
 
 import java.io.IOException;
+import java.util.Map;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,23 @@ public class MyView {
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);
         
+    }
+
+
+    // V3
+    public void render(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        //jsp는 request.getAtrribute를 쓰기 때문에~
+        //model.forEach((key, value) -> request.setAttribute(key, value));
+        modelToRequestAttribute(model, request);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
+        dispatcher.forward(request, response);
+
+    }
+
+    private void modelToRequestAttribute(Map<String, Object> model, HttpServletRequest request) {
+        model.forEach((key, value) -> request.setAttribute(key, value));
     }
 
 
