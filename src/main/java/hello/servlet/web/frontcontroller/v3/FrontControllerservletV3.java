@@ -17,12 +17,12 @@ import hello.servlet.web.frontcontroller.v3.controller.MemberListControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberSaveControllerV3;
 
 @WebServlet(name="frontControllerServletV3", urlPatterns="/front-controller/v3/*")
-public class FrontControllerservletV3 extends HttpServlet{
+public class FrontControllerServletV3 extends HttpServlet{
 
 
     private Map<String, ControllerV3> controllerMap = new HashMap<>();
 
-    public FrontControllerservletV3() {
+    public FrontControllerServletV3() {
 
         controllerMap.put("/front-controller/v3/members/new-form", new MemberFormControllerV3());
         controllerMap.put("/front-controller/v3/members/save", new MemberSaveControllerV3());
